@@ -1,0 +1,27 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'BouncyCastle-ObjC_Example' do
+  pod 'BouncyCastle-ObjC', :path => '../'
+
+  target 'BouncyCastle-ObjC_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
+
+
+# This is workaround to fix local Pod not set correct header search paths issue
+# P.S also set paths for Example.App
+# Not need when you install from CocoaPods
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['HEADER_SEARCH_PATHS'] = '../../dist/frameworks/JRE.framework/Headers'
+            config.build_settings['LIBRARY_SEARCH_PATHS'] = '../../dist/lib'
+        end
+    end
+end
