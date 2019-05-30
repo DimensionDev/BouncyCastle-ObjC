@@ -23,4 +23,5 @@ pod 'BouncyCastle-ObjC'
 
 ## License
 
-BouncyCastle-ObjC is available under the AGPL license. See the LICENSE file for more info.
+BouncyCastle-ObjC is available under the AGPL license. See the [LICENSE](https://github.com/DimensionDev/BouncyCastle-ObjC/blob/master/LICENSE) file for more info. The Bouncy Castle source code is licensed under [MIT](http://www.bouncycastle.org/licence.html).
+
