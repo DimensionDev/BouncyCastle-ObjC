@@ -10,7 +10,7 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.-->
 
 ## Requirements
-- JDK 1.8+
+- JDK 1.8 / 11
 
 You can check the Java version:
 
@@ -35,7 +35,7 @@ pod 'BouncyCastle-ObjC'
 
 ## Troubleshoots
 
-####1. J2ObjC dist/ folder is generated but no translated Objective-C files under Classes/. 
+#### 1. J2ObjC dist/ folder is generated but no translated Objective-C files under Classes/. 
 
 Please clean the Pods/ and use the `pod install --verbose`, make sure the `generate.sh` works without any error. After transalted job done you can run `pod install` again to generate valid xcworkspace.
 
