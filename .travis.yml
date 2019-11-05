@@ -2,16 +2,17 @@
 # * https://www.objc.io/issues/6-build-tools/travis-ci/
 # * https://github.com/supermarin/xcpretty#usage
 
-dist: trusty
 osx_image: xcode10.2
 language: swift
 xcode_workspace: ./Example/BouncyCastle-ObjC.xcworkspace
 xcode_scheme: BouncyCastle-ObjC-Example
 xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X
 # cache: cocoapods
+jdk: openjdk11
 before_install:
   - gem install cocoapods
-  - jdk_switcher use openjdk8
+    - export JAVA_HOME=$HOME/openjdk11
+  - $TRAVIS_BUILD_DIR/install-jdk.sh --url 'https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz' --target $JAVA_HOME
   - cd ./Example/
 install:
   - pod install --verbose
