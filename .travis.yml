@@ -2,13 +2,22 @@
 # * https://www.objc.io/issues/6-build-tools/travis-ci/
 # * https://github.com/supermarin/xcpretty#usage
 
-osx_image: xcode7.3
-language: objective-c
+osx_image: xcode10.2
+language: swift
+xcode_workspace: ./Example/BouncyCastle-ObjC.xcworkspace
+xcode_scheme: TesserCube
+xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X
 # cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
+jdk: openjdk11
+before_install:
+  - export JAVA_HOME=$HOME/openjdk11
+  - $TRAVIS_BUILD_DIR/install-jdk.sh --url 'https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz' --target $JAVA_HOME
+  - java -version
+  - gem install cocoapods
+  - cd ./Example/
+  - pod install --repo-update
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/BouncyCastle-ObjC.xcworkspace -scheme BouncyCastle-ObjC-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+  - set -o pipefail
+  # check J2ObjC works
+  - cat Pods/BouncyCastle-ObjC/BouncyCastle-ObjC/Classes/Base64.h
+  - xcodebuild -workspace BouncyCastle-ObjC.xcworkspace -scheme BouncyCastle-ObjC-Example -destination platform\=iOS\ Simulator,OS\=12.2,name\=iPhone\ X | xcpretty -c
