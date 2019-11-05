@@ -5,17 +5,18 @@
 osx_image: xcode10.2
 language: swift
 xcode_workspace: ./Example/BouncyCastle-ObjC.xcworkspace
-xcode_scheme: TesserCube
+xcode_scheme: BouncyCastle-ObjC-Example
 xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X
+jdk:
+  - oraclejdk8
 # cache: cocoapods
 before_install:
   - gem install cocoapods
   - cd ./Example/
 script:
   - set -o pipefail
-  - jdk_switcher use openjdk8
   - java -version
-  - pod install --repo-update --verbose
+  - pod install --verbose
   # check J2ObjC works
   - cat Pods/BouncyCastle-ObjC/BouncyCastle-ObjC/Classes/Base64.h
   - xcodebuild -workspace BouncyCastle-ObjC.xcworkspace -scheme BouncyCastle-ObjC-Example -destination platform\=iOS\ Simulator,OS\=12.2,name\=iPhone\ X | xcpretty -c
