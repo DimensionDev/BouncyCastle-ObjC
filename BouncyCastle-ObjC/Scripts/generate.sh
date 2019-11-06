@@ -8,7 +8,7 @@ UMBREALLA_HEADER=BouncyCastle-ObjC
 
 rm -rf ${OUTPUT_DIR} && mkdir -p ${OUTPUT_DIR}
 
-${J2OBJC} -d "${OUTPUT_DIR}" \
+${J2OBJC} -Xlint:none -d "${OUTPUT_DIR}" \
 -sourcepath "./${SOURCE_DIR}" \
 --prefixes "BouncyCastle-ObjC/Scripts/prefixes.properties" \
 --swift-friendly \
