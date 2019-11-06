@@ -20,4 +20,4 @@ script:
   - set -o pipefail
   # check J2ObjC works
   - cat ../BouncyCastle-ObjC/Classes/Base64.h
-  - xcodebuild -workspace BouncyCastle-ObjC.xcworkspace -scheme BouncyCastle-ObjC-Example -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.2,name=iPhone X" | grep -A 5 "error:"
+  - xcodebuild -workspace BouncyCastle-ObjC.xcworkspace -scheme BouncyCastle-ObjC-Example -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.2,name=iPhone X"
