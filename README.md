@@ -12,15 +12,19 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 - JDK 1.8 / 11
 
-You can check the Java version:
+For example, use Homebrew to install the JDK 1.8
 
 ```bash
+% brew cask install adoptopenjdk8
+% echo export JAVA_HOME=$(/usr/libexec/java_home -v"1.8") >> ~/.zshrc
+% source ~/.zshrc
+% cat ~/.zshrc
+> export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+
 % java -version
-java version "1.8.0_121"
-Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
-Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
-% javac -version
-javac 1.8.0_121
+> openjdk version "1.8.0_242"
+> OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_242-b08)
+> OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.242-b08, mixed mode)
 ```
 
 
@@ -30,7 +34,7 @@ BouncyCastle-ObjC is available through [CocoaPods](https://cocoapods.org). To in
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'BouncyCastle-ObjC'
+% pod 'BouncyCastle-ObjC'
 ```
 
 ## Troubleshoots

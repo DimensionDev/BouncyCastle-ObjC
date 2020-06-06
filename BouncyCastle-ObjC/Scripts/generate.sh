@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -exu
+
 J2OBJC=dist/j2objc
 
 SOURCE_DIR=BouncyCastle-ObjC/src
