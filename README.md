@@ -15,16 +15,15 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 For example, use Homebrew to install the JDK 1.8
 
 ```bash
-% brew cask install adoptopenjdk8
-% echo export JAVA_HOME=$(/usr/libexec/java_home -v"1.8") >> ~/.zshrc
-% source ~/.zshrc
-% cat ~/.zshrc
-> export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+% brew install openjdk@8
+% sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+% echo $JAVA_HOME
+> /Library/Java/JavaVirtualMachines/openjdk-8.jdk/Contents/Home
 
 % java -version
-> openjdk version "1.8.0_242"
-> OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_242-b08)
-> OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.242-b08, mixed mode)
+> openjdk version "1.8.0_275"
+> OpenJDK Runtime Environment (build 1.8.0_275-bre_2020_11_16_16_29-b00)
+> OpenJDK 64-Bit Server VM (build 25.275-b00, mixed mode)
 ```
 
 
